@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:'Contact' /}
+
+<h1>Contact the Scholarship Committee</h1>
+
+<h2>Email us</h2>
+<form action="/contact-us" method="POST">
+	<div class="formItem">
+		<label for="name">Name</label>
+		<br/>
+		<input class="email" id="name" name="contact.name" type="text" value="${params['contact.name']}" class="#{errorClass 'contact.name' /}" placeholder=""/>
+		<span class="error">#{error 'contact.name' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="email">Email</label>
+		<br/>
+		<input class="email" id="email" name="contact.email" type="text" value="${params['contact.email']}" class="#{errorClass 'contact.email' /}" placeholder=""/>
+		<span class="error">#{error 'contact.email' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="message">Message</label>
+		<textarea id="message" name="contact.message" class="#{errorClass 'contact.message' /}" placeholder="">${params['contact.message']}</textarea>
+		<br/>
+		<span class="error">#{error 'contact.message' /}</span>
+	</div>
+	#{if successMessage}
+	<br/>
+	<div class="container" style="text-align:center;color:green;">
+		<p>${successMessage}</p>
+	</div>
+	<br/>
+	#{/if}
+	<input class="button" type="submit" value="Send"/>
+</form>

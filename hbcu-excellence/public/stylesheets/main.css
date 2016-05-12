@@ -1,0 +1,261 @@
+html, body
+{
+	height:100%;
+	padding:0px;
+	margin:0px;
+	font-family:segoe ui;
+}
+
+#wrapper
+{
+	min-height:100%;
+	min-width:1050px;
+	position:relative;
+	width:100%;
+}
+
+.frontpage-wrapper
+{
+	height:100%;
+}
+
+#header
+{
+	width:100%;
+	position:fixed;
+	top:0px;
+	z-index:20;
+}
+
+#header h1
+{
+	font-weight:normal;
+	padding:5px;
+	margin:0px;
+}
+
+#title
+{
+	text-align:center;
+	background: url('/public/images/blue_bg1.png') repeat;
+}
+
+#title a
+{
+	font-family:georgia;
+	color:#ffffff;
+	text-transform:uppercase;
+	font-size:80px;
+	text-decoration:none;
+}
+
+#menu
+{
+	width:100%;
+	background-color:rgba(0,0,0,0.35);
+	text-align:center;
+}
+
+#title .container,
+#menu .container
+{
+	padding:1px;
+}
+
+#menu ul li
+{
+	display:inline-block;
+}
+
+#menu ul li a
+{
+	color:#ffffff;
+	text-decoration:none;
+	padding:8px;
+	margin:0px 15px;
+	font-size:17px;
+	text-transform:uppercase;
+	background-color:rgba(47,110,156,0.75);
+	-webkit-transition: background-color 500ms; /* Safari */
+    transition: background-color 500ms;
+}
+
+#menu ul li a:hover
+{
+	background-color:rgba(47,110,156,1);
+}
+
+.container
+{
+	width:100%;
+	margin:0px auto;
+	max-width:1100px;
+	position:relative;	
+	box-sizing: border-box;
+	padding:15px;
+}
+
+.container h1
+{
+	font-family:segoe ui light;
+	font-size:55px;
+	color:#E51937;
+}
+
+.container h2
+{
+	font-size:28px;
+	color:#5f6062;
+}
+
+#slideshow
+{
+	height:700px;
+	width:100%;	
+	position:relative;
+	margin-top:101px;
+}
+
+.slide
+{
+	height:inherit;
+	width:inherit;
+}
+
+.slide div
+{
+	height:inhert;
+	width:33.3%;
+	float:left;
+}
+
+.background-image
+{
+	height:inherit;
+	width:inherit;	
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#frame
+{
+	padding-top:33%;
+	width:100%;
+	background-image:url('/public/images/founders-library.jpg');	
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position:relative;
+}
+
+#frame div
+{
+	width:33%;
+	color:#E51937;
+	position:absolute;
+	left:10%;
+	top:15%;
+	font-size:30px;
+	font-style: italic;
+}
+
+#contentWrapper
+{
+	padding-top:140px;
+	width:100%;
+	padding-bottom:340px;
+}
+
+.formItem, .formAddress div
+{
+	padding:5px;
+}
+
+.error
+{
+	color:red;
+}
+
+textarea
+{
+	width:100%;
+	height:150px;
+}
+
+.email
+{
+	width:300px;
+}
+
+.button
+{
+	display:block;
+	padding:10px;
+	border-radius:5px;
+	border:solid 3px #003A63;
+	color:#003A63;
+	background-color:rgba(0,0,0,0.08);
+	font-weight:bold;
+	font-size:15px;
+	width:15%;
+	text-decoration:none;
+	margin:0px auto;
+	-webkit-transition: background-color 500ms, color 500ms; /* Safari */
+    transition: background-color 500ms, color 500ms;
+    cursor:pointer;
+    text-align:center;
+}
+
+.button:hover
+{
+	color:#ffffff;
+	background-color:#003A63;
+}
+
+.small-button
+{
+	font-size:12px;
+	padding:5px;
+	border-width:1px;
+	width:10%;
+	margin:5px;
+}
+
+#loading
+{
+	/* IE10 Consumer Preview */ 
+	background-image: -ms-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #000066 100%);
+	
+	/* Mozilla Firefox */ 
+	background-image: -moz-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #000066 100%);
+	
+	/* Opera */ 
+	background-image: -o-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #000066 100%);
+	
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #FFFFFF), color-stop(1, #000066));
+	
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #000066 100%);
+	
+	/* W3C Markup, IE10 Release Preview */ 
+	background-image: radial-gradient(ellipse farthest-corner at center, #FFFFFF 0%, #000066 100%);
+	
+	display:none;
+	z-index:10;
+	bottom:0px;
+	left:240px;
+	width:400px;
+	text-align:center;
+	position:absolute;
+	opacity:0.75;
+	border-radius:5px;
+}
+
+.required:after
+{
+	content:" *";
+	color:red;
+	font-weight:normal;
+}

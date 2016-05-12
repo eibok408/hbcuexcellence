@@ -1,0 +1,160 @@
+#{extends 'main.html' /}
+#{set title:'Scholarship Application' /}
+
+<h1>Scholarship Application</h1>
+
+<p>Please complete the form below to submit a scholarship application. All applicants
+are <u>required</u> to provide contact information for their high school secretary. Failure to provide correct information
+could result in the disqualification of your submitted application.</p>
+
+<b class="required">Required</b>
+
+<form action="/scholarship-application" method="POST" enctype="multipart/form-data" onsubmit="return getFilePaths()">
+	<h2>Basic Information</h2>
+	<div class="formItem">
+		<label for="firstname" class="required">First Name</label>
+		<input id="firstname" name="submission.firstname" type="text" value="${params['submission.firstname']}" class="#{errorClass 'submission.firstname' /}" placeholder=""/>
+		<span class="error">#{error 'submission.firstname' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="lastname" class="required">Last Name</label>
+		<input id="lastname" name="submission.lastname" type="text" value="${params['submission.lastname']}" class="#{errorClass 'submission.lastname' /}" placeholder=""/>
+		<span class="error">#{error 'submission.lastname' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="email" class="required">Email address</label>
+		<input class="email" id="email" name="submission.email" type="text" value="${params['submission.email']}" class="#{errorClass 'submission.email' /}" placeholder=""/>
+		<span class="error">#{error 'submission.email' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="phone" class="required">Contact Phone Number</label>
+		<input id="phone" name="submission.phone" type="text" value="${params['submission.phone']}" class="#{errorClass 'submission.phone' /}" placeholder=""/>
+		<span class="error">#{error 'submission.phone' /}</span>
+	</div>
+	
+	<h2>High School Information</h2>
+	<div class="formItem">
+		<label for="highSchool" class="required">High School</label>
+		<input id="highSchool" name="submission.highSchool" type="text" value="${params['submission.highSchool']}" class="#{errorClass 'submission.highSchool' /}" placeholder=""/>
+		<span class="error">#{error 'submission.highSchool' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="schoolSecretaryName" class="required">High School Secretary Name</label>
+		<input id="schoolSecretaryName" name="submission.schoolSecretaryName" type="text" value="${params['submission.schoolSecretaryName']}" class="#{errorClass 'submission.schoolSecretaryName' /}" placeholder=""/>
+		<span class="error">#{error 'submission.schoolSecretaryName' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="schoolSecretaryPhoneNumber" class="required">High School Secretary Contact Number</label>
+		<input id="schoolSecretaryPhoneNumber" name="submission.schoolSecretaryPhoneNumber" type="text" value="${params['submission.schoolSecretaryPhoneNumber']}" class="#{errorClass 'submission.schoolSecretaryPhoneNumber' /}" placeholder=""/>
+		<span class="error">#{error 'submission.schoolSecretaryPhoneNumber' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="gpa" class="required">Unweighted Cumulative GPA</label>
+		<input id="gpa" name="submission.gpa" type="text" value="${params['submission.gpa']}" class="#{errorClass 'submission.gpa' /}" placeholder=""/>
+		<span class="error">#{error 'submission.gpa' /}</span>
+	</div>
+	
+	<h2>College Information</h2>
+	<div class="formItem">
+		<label for="university" class="required">University attending in Fall 2016</label>
+		<input id="university" name="submission.university" type="text" value="${params['submission.university']}" class="#{errorClass 'submission.university' /}" placeholder=""/>
+		<span class="error">#{error 'submission.university' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="major" class="required">Major</label>
+		<input id="major" name="submission.major" type="text" value="${params['submission.major']}" class="#{errorClass 'submission.major' /}" placeholder=""/>
+		<span class="error">#{error 'submission.major' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="hasFamilyAttendedHbcu" class="required">Has anyone in your immediate family attended an HBCU?</label>
+		#{if params['submission.hasFamilyAttendedHbcu']}
+			Yes <input name="submission.hasFamilyAttendedHbcu" type="radio" #{if (params['submission.hasFamilyAttendedHbcu'] == "true")}checked#{/if} value="true"/>
+			No <input name="submission.hasFamilyAttendedHbcu" type="radio" #{if (params['submission.hasFamilyAttendedHbcu'] == "false")}checked#{/if} value="false"/>
+		#{/if}
+		#{else}
+			Yes <input name="submission.hasFamilyAttendedHbcu" type="radio" value="true"/>
+			No <input name="submission.hasFamilyAttendedHbcu" type="radio" value="false"/>
+		#{/else}
+		<span class="error">#{error 'submission.hasFamilyAttendedHbcu' /}</span>
+	</div>
+	
+	<h2>Letter of Recommendation Information</h2>
+	<div class="formItem">
+		<label for="recommenderName" class="required">Recommender Name</label>
+		<input id="recommenderName" name="submission.recommenderName" type="text" value="${params['submission.recommenderName']}" class="#{errorClass 'submission.recommenderName' /}" placeholder=""/>
+		<span class="error">#{error 'submission.recommenderName' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="recommenderOccupation" class="required">Occupation</label>
+		<input id="recommenderOccupation" name="submission.recommenderOccupation" type="text" value="${params['submission.recommenderOccupation']}" class="#{errorClass 'submission.recommenderOccupation' /}" placeholder=""/>
+		<span class="error">#{error 'submission.recommenderOccupation' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="recommenderRelationship" class="required">Relationship to applicant</label>
+		<input id="recommenderRelationship" name="submission.recommenderRelationship" type="text" value="${params['submission.recommenderRelationship']}" class="#{errorClass 'submission.recommenderRelationship' /}" placeholder=""/>
+		<span class="error">#{error 'submission.recommenderRelationship' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="recommenderPhone" class="required">Contact Phone Number</label>
+		<input id="recommenderPhone" name="submission.recommenderPhone" type="text" value="${params['submission.recommenderPhone']}" class="#{errorClass 'submission.recommenderPhone' /}" placeholder=""/>
+		<span class="error">#{error 'submission.recommenderPhone' /}</span>
+	</div>
+	
+	<h2>Essay Questions</h2>
+	<div class="formItem">
+		<label for="essayResponse1" class="required">Essay Prompt 1</label>
+		<textarea id="essayResponse1" name="submission.essayResponse1" class="#{errorClass 'submission.essayResponse1' /}" placeholder="">${params['submission.essayResponse1']}</textarea>
+		<br/>
+		<span class="error">#{error 'submission.essayResponse1' /}</span>
+	</div>
+	
+	<div class="formItem">
+		<label for="essayResponse2" class="required">Essay Prompt 2</label>
+		<textarea id="essayResponse2" name="submission.essayResponse2" class="#{errorClass 'submission.essayResponse2' /}" placeholder="">${params['submission.essayResponse2']}</textarea>
+		<br/>
+		<span class="error">#{error 'submission.essayResponse2' /}</span>
+	</div>
+	
+	<h2>Uploads</h2>
+	<p>NOTE: Please follow the naming conventions as described below each upload bar. Any applications that do not follow the proper naming conventions will be disqualified.</p>
+    <ul>
+		<li>Accepted document formats: .pdf</li>
+		<li>Accepted Photo formats: .jpg, .jpeg, .png</li>
+    </ul>
+    <br/>
+	<b class="required">Transcript</b><br/>
+	<input id="transcript" type="file" name="transcript" onchange="getFileSize(this)"/>
+	<input id="transcriptFileName" type="hidden" name="transcriptFileName"/>	
+	<br/><br/>
+	
+	<b class="required">Resume</b><br/>
+	<input id="resume" type="file" name="resume" onchange="getFileSize(this)"/>
+	<input id="resumeFileName" type="hidden" name="resumeFileName"/>
+	<br/><br/>
+	
+	<b class="required">Letter of Recommendation</b><br/>
+	<input id="letterOfRecommendation" type="file" name="letterOfRecommendation" onchange="getFileSize(this)"/>
+	<input id="letterOfRecommendationFileName" type="hidden" name="letterOfRecommendationFileName"/>
+	<br/><br/>
+	
+	<b class="required">Business Professional Photo</b><br/>
+	<input id="photo" type="file" name="photo" onchange="getFileSize(this)"/>
+	<input id="photoFileName" type="hidden" name="photoFileName"/>
+	<br/><br/>
+	
+	<input class="button" type="submit" value="Submit Application"/>
+	<div id="loading">
+		<img style="width:300px;" src="@{'/public/images/loading.gif'}"/>
+	</div>	
+</form>
