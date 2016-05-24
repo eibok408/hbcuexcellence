@@ -50,6 +50,7 @@ public class Application extends Controller
     	uploads.add(new UploadedFile("Resume", params.get("resume", byte[].class), params.get("resumeFileName")));
     	uploads.add(new UploadedFile("LetterOfRecommendation", params.get("letterOfRecommendation", byte[].class), params.get("letterOfRecommendationFileName")));
     	uploads.add(new UploadedFile("Photo", params.get("photo", byte[].class), params.get("photoFileName")));
+    	uploads.add(new UploadedFile("Application", submission.generateReport(), "application.pdf"));
     	
     	// Create a folder for storing application materials.
     	String parentFolderName = submission.firstname + " " + submission.lastname;
