@@ -13,6 +13,8 @@ POST    /scholarship-application                Application.scholarshipApplicati
 
 GET     /scholarship-application/confirmation   Application.scholarshipApplicationConfirmation
 
+GET     /what-are-hbcus                         Application.aboutHbcus
+
 GET     /contact-us                             Application.contact
 
 POST    /contact-us                             Application.contactPost
