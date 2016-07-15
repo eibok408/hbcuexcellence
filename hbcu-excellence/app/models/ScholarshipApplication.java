@@ -149,8 +149,6 @@ public class ScholarshipApplication extends Model
 	        document.add(new Paragraph("Essay Questions\n",sectionHeader));
 	        document.add(new Paragraph("Essay Prompt 1\n",label));
 	        document.add(new Paragraph("Answer: " + this.essayResponse1 + "\n\n",bodyText));
-	        document.add(new Paragraph("Essay Prompt 1\n",label));
-	        document.add(new Paragraph("Answer: " + this.essayResponse2 + "\n\n",bodyText));
         		
             // step 5
             document.close();
