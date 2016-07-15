@@ -74,7 +74,6 @@ public class ScholarshipApplication extends Model
 	@Required
 	public String essayResponse1;
 	
-	@Required
 	public String essayResponse2;
 	
 	public Date timeStamp;
