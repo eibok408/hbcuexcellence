@@ -126,7 +126,7 @@ public class Utilities extends Controller
 		String subject = "HBCU Excellence Website Contact Request - " + contact.name;
         String to = Play.configuration.getProperty("mail.smtp.user2");
         String replyTo = contact.email;
-        String htmlText = String.format("<b>Name: %s</b><br/><br/><p>%s</p>", contact.name, contact.message);
+        String htmlText = String.format("<b>Name: %s</b>%s<br/><br/><p>%s</p>", contact.name, contact.email, contact.message);
         sendEmail(subject, to, replyTo, htmlText);
     }
 	
