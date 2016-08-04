@@ -19,6 +19,8 @@ GET     /contact-us                             Application.contact
 
 POST    /contact-us                             Application.contactPost
 
+GET     /pastwinners                            Application.pastwinners
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
