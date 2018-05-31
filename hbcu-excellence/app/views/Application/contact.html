@@ -4,6 +4,7 @@
 <h1>Contact the Scholarship Committee</h1>
 
 <h2>Email us</h2>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <form action="/contact-us" method="POST">
 	<div class="formItem">
 		<label for="name">Name</label>
@@ -25,6 +26,9 @@
 		<br/>
 		<span class="error">#{error 'contact.message' /}</span>
 	</div>
+	<div class="g-recaptcha" data-sitekey="6LcPZlwUAAAAAFnbwIT-ZauxlnbGjoi02OGM8O27"></div>
+	<input class="button" type="submit" value="Send"/>
+</form>
 	#{if successMessage}
 	<br/>
 	<div class="container" style="text-align:center;color:green;">
@@ -32,5 +36,3 @@
 	</div>
 	<br/>
 	#{/if}
-	<input class="button" type="submit" value="Send"/>
-</form>
